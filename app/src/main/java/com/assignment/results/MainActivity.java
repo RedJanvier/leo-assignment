@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -11,6 +12,12 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PropertyListAdapter adapter = new PropertyListAdapter(this, R.layout.property_list_view, props);
         propertiesList.setAdapter(adapter);
 
+        appbar.setElevation(0);
         appbar.setTitle("Quote Result");
         appbar.setDisplayHomeAsUpEnabled(true);
         designBtn.setOnClickListener(this);
